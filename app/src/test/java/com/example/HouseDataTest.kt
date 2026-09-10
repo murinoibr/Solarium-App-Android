@@ -49,8 +49,6 @@ class HouseDataTest {
         assertEquals(2, vm.uiState.value.currentTab)
         vm.selectTab(3)
         assertEquals(3, vm.uiState.value.currentTab)
-        vm.selectTab(4)
-        assertEquals(4, vm.uiState.value.currentTab)
     }
 
     @Test

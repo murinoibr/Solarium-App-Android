@@ -91,7 +91,6 @@ fun HomeScreen(
     sections: List<ManualSection>,
     onSectionClick: (ManualSection) -> Unit,
     onNavigateToManual: () -> Unit,
-    onNavigateToMap: () -> Unit,
     onNavigateToRecommendations: () -> Unit,
     onNavigateToChat: () -> Unit,
     onFeedback: (String) -> Unit,
@@ -206,7 +205,6 @@ fun HomeScreen(
         // 5. Atalhos Rápidos para Outras Seções (Clean & Modern)
         item(key = "quick_shortcuts_footer") {
             QuickNavigationShortcuts(
-                onNavigateToMap = onNavigateToMap,
                 onNavigateToRecommendations = onNavigateToRecommendations,
                 onNavigateToChat = onNavigateToChat
             )
@@ -651,7 +649,6 @@ private fun iconForManualSection(id: Int, iconName: String): ImageVector {
  */
 @Composable
 private fun QuickNavigationShortcuts(
-    onNavigateToMap: () -> Unit,
     onNavigateToRecommendations: () -> Unit,
     onNavigateToChat: () -> Unit
 ) {
@@ -680,16 +677,7 @@ private fun QuickNavigationShortcuts(
 
         Row(
             modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            ShortcutPill(
-                title = "Planta Baixa",
-                icon = Icons.Default.Map,
-                tint = colors.sunOrange,
-                onClick = onNavigateToMap,
-                modifier = Modifier.weight(1f)
-            )
-
             ShortcutPill(
                 title = "Dicas Locais",
                 icon = Icons.Default.Explore,
