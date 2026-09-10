@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "443962331317",
+    "project_id": "solarium-murinoi",
+    "storage_bucket": "solarium-murinoi.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:443962331317:android:f615dc7a2a05fa26f1aefc",
+        "android_client_info": {
+          "package_name": "com.aistudio.guiadohospede.ramon"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhjTWdFXk2DlP-ZN5H_jeUpIDP7VKw7E0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
