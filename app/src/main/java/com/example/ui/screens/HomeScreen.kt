@@ -677,7 +677,6 @@ private fun QuickNavigationShortcuts(
 
         Row(
             modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(10.dp)
         ) {
             ShortcutPill(
                 title = "Dicas Locais",

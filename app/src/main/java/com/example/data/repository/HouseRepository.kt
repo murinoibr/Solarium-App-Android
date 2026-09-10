@@ -1050,7 +1050,6 @@ object HouseRepository {
     )
 
     val quickQuestions = listOf(
-        "O que esse lugar oferece?",
         "Falar com a dona no WhatsApp",
         "Qual a senha do Wi-Fi?",
         "Como abre a porta antiga?",
@@ -1068,39 +1067,6 @@ object HouseRepository {
     fun getInstantAnswer(question: String): String? {
         val q = question.lowercase().trim()
         return when {
-            q.contains("o que esse lugar oferece") || q.contains("o que oferece") || q.contains("comodidades") || q.contains("o que tem na casa") || q.contains("o que tem") || q.contains("comodidade") -> {
-                "🏡 **O que a Casa Solarium Oferece:**\n\n" +
-                "🛁 **Banheiro:** Secador de cabelo, produtos de limpeza, Xampu Dove, Condicionador Dove, Sabonete Natura Todo Dia e água quente.\n\n" +
-                "🛏️ **Quarto & Lavanderia:** Máquina de lavar (grátis), toalhas, lençóis de algodão, cobertores, travesseiros, cortinas blackout, ferro, varal e cômoda com cabides.\n\n" +
-                "🍳 **Cozinha:** Geladeira Brastemp, fogão/forno Electrolux, Air Fryer, torradeira, liquidificador, taças de vinho, pó de café e temperos básicos.\n\n" +
-                "🎹 **Lazer & Climatização:** Piano clássico, HDTV com Chromecast e Sky Net, ventiladores portáteis e aquecedor portátil.\n\n" +
-                "🌿 **Área Externa:** Quintal gramado privado, varanda/pátio, rede, churrasqueira a carvão e espreguiçadeira.\n\n" +
-                "🚗 **Estacionamento & Serviços:** 3 vagas de garagem (1 coberta), permite deixar bagagens, permite fumar na varanda e aceita estadias longas (28+ dias)."
-            }
-            q.contains("banheiro") || q.contains("xampu") || q.contains("shampoo") || q.contains("condicionador") || q.contains("sabonete") || q.contains("dove") || q.contains("natura") || q.contains("secador") || q.contains("água quente") -> {
-                "🛁 **Itens do Banheiro:**\n• **Banho & Higiene:** Xampu Dove, Condicionador Dove e Sabonete Todo Dia (Natura) para o corpo.\n• **Equipamentos:** Secador de cabelo e produtos de limpeza inclusos.\n• **Conforto:** Chuveiros com água quente e excelente pressão."
-            }
-            q.contains("cozinha") || q.contains("geladeira") || q.contains("brastemp") || q.contains("electrolux") || q.contains("fogão") || q.contains("panela") || q.contains("taça") || q.contains("torradeira") || q.contains("liquidificador") || q.contains("utensílios") || q.contains("prato") || q.contains("talher") || q.contains("hashi") -> {
-                "🍳 **Itens da Cozinha & Sala de Jantar:**\n• **Eletros:** Geladeira Brastemp, Fogão a gás Electrolux, Forno Electrolux de aço inox, Torradeira e Liquidificador.\n• **Utensílios:** Vasilhas, panelas, assadeira, pratos, tigelas, talheres, copos, taças de vinho e hashi.\n• **Básicos:** Óleo, sal, pimenta, pó de café, açúcar, adoçante e chás cortesia."
-            }
-            q.contains("quarto") || q.contains("lavanderia") || q.contains("blackout") || q.contains("ferro") || q.contains("varal") || q.contains("cômoda") || q.contains("cabide") -> {
-                "🛏️ **Quarto & Lavanderia:**\n• **Roupas de cama:** Lençóis de algodão, cobertores e travesseiros extras (no armário do quarto de solteiro).\n• **Conforto:** Cortinas blackout nos quartos e cômoda com cabides para guardar roupas.\n• **Lavanderia:** Máquina de lavar roupas (uso gratuito), ferro de passar e varal para secar roupas."
-            }
-            q.contains("churrasqueira") || q.contains("quintal") || q.contains("rede") || q.contains("varanda") || q.contains("pátio") || q.contains("espreguiçadeira") || q.contains("área externa") -> {
-                "🌿 **Área Externa & Lazer ao Ar Livre:**\n• **Pátio / Varanda Privativa:** Espaço coberto com cadeiras e mesa.\n• **Quintal Privado:** Gramado aberto com vista para as serras.\n• **Churrasqueira:** Privativa a carvão.\n• **Descanso:** Rede confortável e cadeira espreguiçadeira."
-            }
-            q.contains("piano") || q.contains("chromecast") -> {
-                "🎹 **Entretenimento:**\n• **Piano:** Piano clássico vertical acústico disponível para tocar!\n• **TV:** HDTV com Chromecast para espelhar seu celular e TV a cabo Sky Net."
-            }
-            q.contains("aquecedor") || q.contains("ventilador") || q.contains("climatização") || q.contains("ar condicionado") || q.contains("ar-condicionado") -> {
-                "❄️🔥 **Climatização:**\n• A casa possui **ventiladores portáteis** e **aquecedor portátil** à disposição dos hóspedes.\n• *Obs:* A casa **não possui ar-condicionado**, mas o clima de São Lourenço é bem arejado à noite!"
-            }
-            q.contains("não incluso") || q.contains("não tem") || q.contains("indisponível") || q.contains("indisponivel") || q.contains("câmera") || q.contains("fumaça") || q.contains("secadora") -> {
-                "ℹ️ **Itens Indisponíveis / Não Inclusos na Casa:**\n• **Ar-condicionado** (disponíveis ventiladores e aquecedor portátil)\n• **Secadora de roupas** (disponível varal e máquina de lavar)\n• **Câmeras de segurança externas**\n• **Detector de fumaça** (temos detectores de monóxido de carbono nos 2 andares, mas não de fumaça. Dúvidas contate a anfitriã)."
-            }
-            q.contains("mala") || q.contains("bagagem") || q.contains("longa") || q.contains("28 dias") || q.contains("fumar") -> {
-                "🧳 **Serviços e Regras Especiais:**\n• **Bagagens:** É permitido deixar as bagagens antes do check-in ou após o check-out se chegar cedo ou sair tarde!\n• **Fumar:** Permitido apenas nas áreas externas / varanda.\n• **Estadias Longas:** Permitido para 28 dias ou mais.\n• **Recepção:** A anfitriã Valéria recebe você pessoalmente."
-            }
             q.contains("whatsapp") || q.contains("zap") || q.contains("dona") || q.contains("proprietária") || q.contains("valéria") || q.contains("anfitriã") -> {
                 "💬 **WhatsApp Direto da Proprietária:**\n• **Anfitriã:** Valéria\n• **Telefone / WhatsApp:** $HOST_PHONE_DISPLAY\n\nVocê pode tocar no botão verde acima ou no botão do WhatsApp ao lado da caixa de mensagem para enviar sua dúvida diretamente para o celular dela!"
             }

@@ -7,7 +7,6 @@ plugins {
   alias(libs.plugins.roborazzi)
   alias(libs.plugins.secrets)
   alias(libs.plugins.google.services)
-  alias(libs.plugins.google.firebase.crashlytics)
 }
 
 android {
@@ -31,16 +30,12 @@ android {
       keyAlias = "upload"
       keyPassword = System.getenv("KEY_PASSWORD")
     }
-    val customDebugKeystore = file("${rootDir}/debug.keystore")
-    if (customDebugKeystore.exists()) {
       create("debugConfig") {
-        storeFile = customDebugKeystore
         storePassword = "android"
         keyAlias = "androiddebugkey"
         keyPassword = "android"
       }
     }
-  }
 
   buildTypes {
     release {
@@ -49,15 +44,8 @@ android {
       proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
       signingConfig = signingConfigs.getByName("release")
     }
-    debug {
-      signingConfigs.findByName("debugConfig")?.let {
-        signingConfig = it
-      }
-    }
   }
   compileOptions {
-    sourceCompatibility = JavaVersion.VERSION_21
-    targetCompatibility = JavaVersion.VERSION_21
   }
   buildFeatures {
     compose = true
@@ -86,8 +74,6 @@ dependencies {
   implementation(platform(libs.androidx.compose.bom))
   implementation(platform(libs.firebase.bom))
   // implementation(libs.accompanist.permissions)
-  implementation(libs.androidx.activity)
-  implementation(libs.androidx.activity.ktx)
   implementation(libs.androidx.activity.compose)
   // implementation(libs.androidx.camera.camera2)
   // implementation(libs.androidx.camera.core)
@@ -121,7 +107,6 @@ dependencies {
   // implementation(libs.googleid)
   implementation(libs.firebase.appcheck.recaptcha)
   implementation(libs.firebase.appcheck.debug)
-  implementation(libs.firebase.crashlytics)
   implementation(libs.kotlinx.coroutines.android)
   implementation(libs.kotlinx.coroutines.core)
   implementation(libs.logging.interceptor)

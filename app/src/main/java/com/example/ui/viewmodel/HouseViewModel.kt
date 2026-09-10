@@ -35,11 +35,8 @@ data class HouseUiState(
         ChatMessage(
             id = "msg_welcome",
             text = "Olá! Seja muito bem-vindo à nossa casa em São Lourenço! Sou a Concierge Digital da anfitriã Valéria. Como posso te ajudar hoje?",
-            isFromUser = false,
-        ),
     ),
     val isChatLoading: Boolean = false,
-    val copyFeedbackMessage: String? = null,
 )
 
 class HouseViewModel : ViewModel() {
@@ -78,7 +75,6 @@ class HouseViewModel : ViewModel() {
         _uiState.update {
             it.copy(
                 activeMapCategory = if (it.activeMapCategory == category) null else category,
-                selectedLocation = null,
             )
         }
     }
@@ -95,7 +91,6 @@ class HouseViewModel : ViewModel() {
         _uiState.update {
             it.copy(
                 activeFloorCategory = if (it.activeFloorCategory == category) null else category,
-                selectedFloorPoint = null,
             )
         }
     }
@@ -141,13 +136,11 @@ class HouseViewModel : ViewModel() {
         val userMsg = ChatMessage(
             id = UUID.randomUUID().toString(),
             text = query.trim(),
-            isFromUser = true,
         )
 
         _uiState.update { state ->
             state.copy(
                 chatMessages = state.chatMessages + userMsg,
-                isChatLoading = true,
             )
         }
 
@@ -156,12 +149,10 @@ class HouseViewModel : ViewModel() {
             val assistantMsg = ChatMessage(
                 id = UUID.randomUUID().toString(),
                 text = answer,
-                isFromUser = false,
             )
             _uiState.update { state ->
                 state.copy(
                     chatMessages = state.chatMessages + assistantMsg,
-                    isChatLoading = false,
                 )
             }
         }
@@ -174,9 +165,6 @@ class HouseViewModel : ViewModel() {
                     ChatMessage(
                         id = "msg_reset",
                         text = "Conversa reiniciada! Como posso te auxiliar com a estadia na casa ou passeios em São Lourenço?",
-                        isFromUser = false,
-                    ),
-                ),
             )
         }
     }
