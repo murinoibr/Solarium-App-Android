@@ -1,0 +1,8 @@
+{
+  "name": "Solarium",
+  "description": "Manual interativo e concierge para hóspedes da casa em São Lourenço: mapa, comodidades, regras e suporte rápido.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

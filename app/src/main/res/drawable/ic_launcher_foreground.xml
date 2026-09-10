@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Centered within 66dp safe zone (21dp to 87dp) -->
+    <!-- Cozy Guest House silhouette with door and heart window -->
+    <!-- Roof -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M54,27 L25,51 L29.5,56.5 L54,36.5 L78.5,56.5 L83,51 Z" />
+    <!-- Chimney -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M70,33 L70,44 L76,49 L76,33 Z" />
+    <!-- House body -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M31,53 L31,79 C31,81.2 32.8,83 35,83 L73,83 C75.2,83 77,81.2 77,79 L77,53 L54,34 Z" />
+    <!-- Front Door (Arched) -->
+    <path
+        android:fillColor="#C85A32"
+        android:pathData="M48,83 L48,64 C48,60.7 50.7,58 54,58 C57.3,58 60,60.7 60,64 L60,83 Z" />
+    <!-- Warm heart icon on top indicating hospitality -->
+    <path
+        android:fillColor="#FFD166"
+        android:pathData="M54,49 C52.5,46.5 49,46.5 48,48.5 C47,50.5 48.5,52.5 54,55 C59.5,52.5 61,50.5 60,48.5 C59,46.5 55.5,46.5 54,49 Z" />
+</vector>
